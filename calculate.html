@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Calculator</title>
+</head>
+<body>
+    <div class="calculator">
+        <h1>Calculator</h1>
+        <div class="input">
+            <input type="text" id="input_box">
+        </div>
+        <div class="cal_body">
+            <table>
+                <tr>
+                    <td onclick="click1('C')"><p>C</p></td>
+                    <td onclick="click1('%')"><p>%</p></td>
+                    <td onclick="click1('<=')"><p><=</p></td>
+                    <td onclick="click1('/')"><p>/</p></td>
+                </tr>
+                <tr>
+                    <td onclick="click1('1')"><p>1</p></td>
+                    <td onclick="click1('2')"><p>2</p></td>
+                    <td onclick="click1('3')"><p>3</p></td>
+                    <td onclick="click1('X')"><p>X</p></td>
+                </tr>
+                <tr>
+                    <td onclick="click1('4')"><p>4</p></td>
+                    <td onclick="click1('5')"><p>5</p></td>
+                    <td onclick="click1('6')"><p>6</p></td>
+                    <td onclick="click1('-')"><p>-</p></td>
+                </tr>
+                <tr>
+                    <td onclick="click1('7')"><p>7</p></td>
+                    <td onclick="click1('8')"><p>8</p></td>
+                    <td onclick="click1('9')"><p>9</p></td>
+                    <td onclick="click1('+')"><p>+</p></td>
+                </tr>
+                <tr>
+                    <td onclick="click1('00')"><p>00</p></td>
+                    <td onclick="click1('0')"><p>0</p></td>
+                    <td onclick="click1('.')"><p>.</p></td>
+                    <td onclick="click1('=')"><p>=</p></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
