@@ -19,51 +19,67 @@ function evaluate(){
     }
     calculate(element);
 }
-function calculate(element){
-    result;
-    if(element.length==2){
-        return element[0];
-    }
-    else{
-        for(let i=0;i<element.length;i++){
-            if(element[i]=='/'){
-                a = element[i-1]/element[i+1]
-                element[i-1]=a;
-                element.splice(i,1);
-                element.splice(i,1);
-                result = calculate(element);
-                break;
-            }
-            else if(element[i]=='X'){
-                a = element[i-1]*element[i+1]
-                element[i-1]=a;
-                element.splice(i,1);
-                element.splice(i,1);
-                result = calculate(element);
-                break;
-            }
-            else if(element[i]=='+'){
-                a = element[i-1]+element[i+1]
-                element[i-1]=a;
-                element.splice(i,1);
-                element.splice(i,1);
-                result = calculate(element);
-                break;
-            }
-            else if(element[i]=='-'){
-                a = element[i-1]-element[i+1]
-                element[i-1]=a;
-                element.splice(i,1);
-                element.splice(i,1);
-                result = calculate(element);
-                break;
-            }
+function div(element){
+    for(let i=0;i<element.length;i++){
+        if(element[i]=='/'){
+            a = element[i-1]/element[i+1]
+            element[i-1]=a;
+            element.splice(i,1);
+            element.splice(i,1);
+            element = div(element);
+            break;
         }
-        s=result
-        input.value=result;
-        return result;
     }
+    return element
 }
+function mul(element){
+    for(let i=0;i<element.length;i++){
+        if(element[i]=='X'){
+            a = element[i-1]*element[i+1]
+            element[i-1]=a;
+            element.splice(i,1);
+            element.splice(i,1);
+            element = mul(element);
+            break;
+        }
+    }
+    return element
+}
+function add(element){
+    for(let i=0;i<element.length;i++){
+        if(element[i]=='+'){
+            a = element[i-1]+element[i+1]
+            element[i-1]=a;
+            element.splice(i,1);
+            element.splice(i,1);
+            element = add(element);
+            break;
+        }
+    }
+    return element
+}
+function sub(element){
+    for(let i=0;i<element.length;i++){
+        if(element[i]=='-'){
+            a = element[i-1]-element[i+1]
+            element[i-1]=a;
+            element.splice(i,1);
+            element.splice(i,1);
+            element = sub(element);
+            break;
+        }
+    }
+    return element
+}
+function calculate(element){
+    element = div(element);
+    element = mul(element);
+    element = add(element);
+    element = sub(element);
+    s=element[0];
+    input.value=element[0];
+}
+
 last="";
 function click1(i){
     if(i=='='){
